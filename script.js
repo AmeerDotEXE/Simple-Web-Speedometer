@@ -1,5 +1,10 @@
 "use strict";
 
+const clockEl = document.getElementById("clock");
+setInterval(() => {
+	clockEl.textContent = new Date().toLocaleTimeString();
+}, 1000);
+
 if (!"geolocation" in navigator) {
 	alert("No geolocation API available");
 	speedDiv.textContent = "No API";
@@ -20,7 +25,7 @@ const WID = navigator.geolocation.watchPosition(
 		}
 		
 		console.log("Got speed:", loc.coords.speed);
-		speedometerEl.textContent = loc.coords.speed.toFixed(2);
+		speedometerEl.textContent = (loc.coords.speed * (60/1000)).toFixed(2);
 	},
 	(err) => {
 		speedometerEl.textContent = err.message;
@@ -28,5 +33,7 @@ const WID = navigator.geolocation.watchPosition(
 	},
 	{
 		enableHighAccuracy: true,
+		maximumAge: 0,
+		timeout: 10000,
 	}
 );

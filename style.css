@@ -12,3 +12,16 @@ html, body {
 	width: 100%;
 	margin: 0;
 }
+
+.counters {
+	display: flex;
+	height: 100%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.counter {
+	font-size: 2em;
+	font-family: monospace;
+	font-weight: 700;
+}
