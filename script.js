@@ -25,7 +25,7 @@ const WID = navigator.geolocation.watchPosition(
 		}
 		
 		console.log("Got speed:", loc.coords.speed);
-		speedometerEl.textContent = (loc.coords.speed * (60/1000)).toFixed(2);
+		speedometerEl.textContent = (loc.coords.speed * 3.6).toFixed(2);
 	},
 	(err) => {
 		speedometerEl.textContent = err.message;
